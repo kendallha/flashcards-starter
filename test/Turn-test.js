@@ -11,7 +11,7 @@ describe('Turn', function() {
     beforeEach(function() {
         card = new Card(1,'What data type is true/false?', ['boolean', 'array', 'string'], 'boolean');
         turn = new Turn('boolean', card);
-    })
+    });
 
     it('should be a function', function() {
         expect(Turn).to.be.a('function');

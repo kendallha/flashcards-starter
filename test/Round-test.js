@@ -13,6 +13,7 @@ describe('Round', function() {
     let card2;
     let card3;
     let deck;
+    let turn;
 
     beforeEach(function() {
         card1 = new Card(1, 'Which of the following is not an array prototype method?', ['array.filter', 'array.map', 'array.extrapolate'], 'array.extrapolate');
@@ -21,6 +22,7 @@ describe('Round', function() {
 
         deck = new Deck([card1, card2, card3]);
         round = new Round(deck);
+        turn = new Turn('array.filter', card1);
     });
 
     it('should be a function', function() {
@@ -39,7 +41,7 @@ describe('Round', function() {
         expect(round.returnCurrentCard()).to.equal(round.currentCard);
     });
 
-    it.skip('should create a new turn instance when a turn is taken', function() {
+    it('should create a new turn instance when a turn is taken', function() {
         round.takeTurn('array.filer');
         expect(turn).to.be.an.instanceOf(Turn);
     });
@@ -54,7 +56,7 @@ describe('Round', function() {
         expect(round.turns).to.equal(1);
     });
 
-    it.skip('should update the current card to the next in the deck after a turn is taken', function() {
+    it('should update the current card to the next in the deck after a turn is taken', function() {
         round.takeTurn('array.map');
         expect(round.currentCard).to.deep.equal(round.deck.cards[1]);
 
@@ -64,22 +66,22 @@ describe('Round', function() {
 
     it.skip('should determine if a guess is correct', function() {
         round.takeTurn('array.extrapolate');
-        expect(turn.correctGuess).to.equal(true);
+        expect(turn.correct).to.equal(true);
     });
 
-    it('should determine if a guess is incorrect', function() {
+    it.skip('should determine if a guess is incorrect', function() {
         round.takeTurn('array.map');
-        expect(turn.correctGuess).to.equal(false);
+        expect(turn.correct).to.equal(false);
     });
 
-    it.skip('should record if an answer is correct', function() {
+    it('should record if an answer is correct', function() {
         round.takeTurn('array.extrapolate');
         expect(round.correctGuesses.length).to.deep.equal(1);
         expect(round.incorrectGuesses.length).to.deep.equal(0);
     });
 
-    it.skip('should record if an answer is correct', function() {
-        round.takeTurn('array.extrapolate');
+    it('should record if an answer is incorrect', function() {
+        round.takeTurn('array.filter');
         expect(round.incorrectGuesses.length).to.deep.equal(1);
         expect(round.correctGuesses.length).to.deep.equal(0);
     });
@@ -89,7 +91,7 @@ describe('Round', function() {
         round.takeTurn('0');
         round.takeTurn('string');
         round.calculatePercentCorrect();
-        expect(round.calculatePercentCorrect()).to.equal(66);
+        expect(round.calculatePercentCorrect()).to.equal(67);
    });
 
     it('should tell the user their percent correct when the round is over',function() {
@@ -97,7 +99,7 @@ describe('Round', function() {
         round.takeTurn('0');
         round.takeTurn('string');
         round.endRound();
-        expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`);
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
 });
 
 
