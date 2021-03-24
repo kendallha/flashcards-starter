@@ -41,11 +41,6 @@ describe('Round', function() {
         expect(round.returnCurrentCard()).to.equal(round.currentCard);
     });
 
-    it('should create a new turn instance when a turn is taken', function() {
-        round.takeTurn('array.filer');
-        expect(turn).to.be.an.instanceOf(Turn);
-    });
-
     it('should update the turn counter if the guess is incorrect', function() {
         round.takeTurn('array.map');
         expect(round.turns).to.equal(1);
@@ -90,7 +85,6 @@ describe('Round', function() {
         round.takeTurn('array.extrapolate');
         round.takeTurn('0');
         round.takeTurn('string');
-        round.calculatePercentCorrect();
         expect(round.calculatePercentCorrect()).to.equal(67);
    });
 
@@ -98,7 +92,6 @@ describe('Round', function() {
         round.takeTurn('array.extrapolate');
         round.takeTurn('0');
         round.takeTurn('string');
-        round.endRound();
         expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
 });
 

@@ -10,12 +10,13 @@ class Game {
   }
 
   start() {
-    this.cards = data.map(item => let card = new Card(item.id, item.question, item.answers, item.correctAnswer));
-    this.deck = new Deck(cards);
-    this.currentRound = new Round(deck);
+    this.cards = prototypeQuestions.map(item => new Card(item));
+    this.deck = new Deck(this.cards);
+    this.currentRound = new Round(this.deck);
     this.printMessage(this.deck, this.currentRound);
-    this.printQuestion();
+    this.printQuestion(this.currentRound);
   }
+
   printMessage(deck, round) {
       console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
