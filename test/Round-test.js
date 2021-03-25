@@ -41,11 +41,6 @@ describe('Round', function() {
         expect(round.returnCurrentCard()).to.equal(round.currentCard);
     });
 
-    it('should create a new turn instance when a turn is taken', function() {
-        round.takeTurn('array.filer');
-        expect(turn).to.be.an.instanceOf(Turn);
-    });
-
     it('should update the turn counter if the guess is incorrect', function() {
         round.takeTurn('array.map');
         expect(round.turns).to.equal(1);
@@ -64,14 +59,13 @@ describe('Round', function() {
         expect(round.currentCard).to.deep.equal(round.deck.cards[2]);
     });
 
-    it.skip('should determine if a guess is correct', function() {
-        round.takeTurn('array.extrapolate');
-        expect(turn.correct).to.equal(true);
+    it('should determine if a guess is correct', function() {
+        expect(round.takeTurn('array.extrapolate')).to.equal('correct!');
     });
 
-    it.skip('should determine if a guess is incorrect', function() {
+    it('should determine if a guess is incorrect', function() {
         round.takeTurn('array.map');
-        expect(turn.correct).to.equal(false);
+        expect(round.takeTurn('array.map')).to.equal('incorrect!');
     });
 
     it('should record if an answer is correct', function() {
@@ -90,7 +84,6 @@ describe('Round', function() {
         round.takeTurn('array.extrapolate');
         round.takeTurn('0');
         round.takeTurn('string');
-        round.calculatePercentCorrect();
         expect(round.calculatePercentCorrect()).to.equal(67);
    });
 
@@ -98,7 +91,6 @@ describe('Round', function() {
         round.takeTurn('array.extrapolate');
         round.takeTurn('0');
         round.takeTurn('string');
-        round.endRound();
         expect(round.endRound()).to.equal(`** Round over! ** You answered 67% of the questions correctly!`);
 });
 
