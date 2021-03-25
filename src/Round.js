@@ -27,8 +27,6 @@ class Round {
     }
 
     calculatePercentCorrect() {
-        console.log(this.correctGuesses.length);
-        console.log(this.turns);
         return Math.round((this.correctGuesses.length / this.turns) * 100);
     }
 

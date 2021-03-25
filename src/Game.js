@@ -10,7 +10,7 @@ class Game {
   }
 
   start() {
-    this.cards = prototypeQuestions.map(item => new Card(item));
+    this.cards = prototypeQuestions.map(item => new Card(item.id, item.question, item.answers, item.correctAnswer));
     this.deck = new Deck(this.cards);
     this.currentRound = new Round(this.deck);
     this.printMessage(this.deck, this.currentRound);

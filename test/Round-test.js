@@ -59,14 +59,13 @@ describe('Round', function() {
         expect(round.currentCard).to.deep.equal(round.deck.cards[2]);
     });
 
-    it.skip('should determine if a guess is correct', function() {
-        round.takeTurn('array.extrapolate');
-        expect(turn.correct).to.equal(true);
+    it('should determine if a guess is correct', function() {
+        expect(round.takeTurn('array.extrapolate')).to.equal('correct!');
     });
 
-    it.skip('should determine if a guess is incorrect', function() {
+    it('should determine if a guess is incorrect', function() {
         round.takeTurn('array.map');
-        expect(turn.correct).to.equal(false);
+        expect(round.takeTurn('array.map')).to.equal('incorrect!');
     });
 
     it('should record if an answer is correct', function() {
