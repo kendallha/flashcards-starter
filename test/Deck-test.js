@@ -17,7 +17,6 @@ describe('Deck', function() {
       array?`, ['1', '0', 'null'], '0');
     card3 = new Card(3, `Which of these is a complex data type in JS?`, 
       ['boolean', 'object', 'string'], 'object');
-
     deck = new Deck([card1, card2, card3]);
   });
 

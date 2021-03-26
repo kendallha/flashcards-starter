@@ -26,34 +26,28 @@ describe('Turn', function() {
   });
 
   it('should return the user\'s guess', function() {
-    turn.returnGuess();
     expect(turn.returnGuess()).to.equal(turn.guess);
   });
 
   it('should return the current card', function() {
-    turn.returnCard();
     expect(turn.returnCard()).to.equal(card);
   });
 
   it('should determine if a guess is true', function() {
-    turn.evaluateGuess();
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
   it('should determine if a guess is false', function() {
     turn = new Turn('string', card);
-    turn.evaluateGuess();
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
   it('should tell the user if their guess is correct', function() {
-    turn.giveFeedback();
     expect(turn.giveFeedback()).to.equal('correct!');
   });
 
   it('should tell the user if their guess is incorrect', function() {
     turn = new Turn('string', card);
-    turn.giveFeedback();
     expect(turn.giveFeedback()).to.equal('incorrect!');
   });
 })

@@ -9,7 +9,7 @@ class Game {
   constructor() {
   }
 
-  start() {
+  start = () => {
     this.cards = prototypeQuestions.map(item => new Card(item.id, 
       item.question, item.answers, item.correctAnswer));
     this.deck = new Deck(this.cards);
@@ -18,15 +18,13 @@ class Game {
     this.printQuestion(this.currentRound);
   }
 
-  printMessage(deck) {
+  printMessage = deck => {
     console.log(`Welcome to FlashCards! You are playing with 
     ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
-  printQuestion(round) {
-    util.main(round);
-  }
+  printQuestion = round => util.main(round);
 }
 
 module.exports = Game;
