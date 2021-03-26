@@ -7,7 +7,7 @@ The goal of this project was to use test driven development to complete a partia
 The project plan for this assignment can be found [here](https://trello.com/b/l2bXpamL/flashcards-project-mod-2).
 
 
-![flashcards gameplay gif](https://media.giphy.com/media/gXXB042LG02Bg79RUF/giphy.gif)
+![flashcards gameplay gif](https://media.giphy.com/media/aL3mThjJmGJgxHXUTQ/giphy.gif)
 
 
 ## Installation / Setup
